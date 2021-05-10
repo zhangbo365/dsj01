@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh">
-	<head>
-		<title></title>
-		<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
-		<script src="js/vue.js"></script>
-	</head>
-	<body>
-		<div id="app">
-			<button @click="show=!show">测试</button>
-			<transition name="abc" 
-				enter-active-class="animate__animated animate__lightSpeedInLeft" 
-				leave-active-class="animate__animated animate__lightSpeedOutRight">
-				<p v-if="show">你好，我是动画和过度</p>
-			</transition>
-		</div>
-		<script>
-			new Vue({
-				el: '#app',
-				data: {
-					show: true
-				}
-			})
-		</script>
-	</body>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="show=!show">测试</button>
+      <transition
+        name="abc"
+        enter-active-class="animate__animated animate__lightSpeedInLeft"
+        leave-active-class="animate__animated animate__lightSpeedOutRight"
+      >
+        <p v-if="show">你好，我是动画和过度,haha</p>
+      </transition>
+    </div>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          show: true,
+        },
+      })
+    </script>
+  </body>
 </html>
