@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>切换选项卡</title>
+    <link rel="stylesheet" href="css/tabs.css" />
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <tabs v-model="activeKey">
+        <transition name="slide-fade">
+          <pane label="图片一" name="1"> <img src="img/1.jpg" /></pane>
+        </transition>
+        <transition name="slide-fade">
+          <pane label=" 图片二" name="2"> <img src="img/2.jpg" /></pane>
+        </transition>
+        <transition name="slide-fade">
+          <pane label="图片三" name="3"> <img src="img/3.jpg" /></pane>
+        </transition>
+      </tabs>
+    </div>
+  </body>
+</html>
+<script src="js/tabs1.js"></script>
+<script src="js/tabs2.js"></script>
+<script src="js/tabs3.js"></script>

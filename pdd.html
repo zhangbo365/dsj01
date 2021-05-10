@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="price" value="1000" />
+    <button onclick="test()">测试</button>
+    <div id="msg"></div>
+  </body>
+</html>
+<script>
+  function test() {
+    var price = document.getElementById('price').value //原始价格
+    console.log(price)
+    var lastPrice = Math.floor(Math.random() * 10 + 1) / 100 //最后一刀前剩下的钱
+    var realPrice = price - lastPrice
+
+    var dao = 1 //价格为1位数：1刀  2位数：首位/2+1刀  3位数：6刀
+
+    if (price > 100) {
+      dao = 6
+    } else if (price > 10) {
+      dao = parseInt(price / 10 / 2) + 1
+    }
+
+    var money = []
+    money[0] = getRandPrice(realPrice)
+    for (var i = 0; i < dao - 1; i++) {
+      money[i + 1] = getRandPrice(money[i])
+    }
+    var total = 0
+    for (var i in money) {
+      total += parseFloat(money[i])
+    }
+
+    money.pop()
+    money.push((realPrice - total).toFixed(2))
+    money.push(lastPrice)
+    console.log(money)
+    var total = 0
+    for (var i in money) {
+      total += parseFloat(money[i])
+    }
+    console.log(total)
+  }
+
+  function getRandPrice(qian) {
+    var zz = Math.floor(Math.random() * 10 + 5) //生成1~10之间随机数
+    var fh = Math.floor(Math.random() * 2 + 1) //生成1~2之间随机数
+    var percent
+    //如果fh为1，则增加zz；否则，减少zz
+    if (fh == 1) {
+      percent = 0.4 + zz / 100
+    } else {
+      percent = 0.4 - zz / 100
+    }
+
+    percent = percent.toFixed(2)
+    return (percent * qian).toFixed(2)
+  }
+</script>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    left
+    <button onclick="abc()">aaa</button>
+  </body>
+</html>
+<script>
+  console.log(window.opener)
+  function abc() {
+    window.opener.document.getElementById('abc').innerHTML = 'abc'
+  }
+</script>

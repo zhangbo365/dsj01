@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div id="test">
+			<input type="text" v-abc>
+		</div>
+	</body>
+</html>
+<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	Vue.directive('abc',{inserted:function(el){
+		el.focus()
+	},updated:function(el){
+		console.log(el)
+	},bind:function(el){
+		el.addEventListener('keyup',function(){
+			console.log(this.value)
+		})
+	}})
+	var app = new Vue({
+		el: '#test',
+		data() {
+			return {
+				a: '0'
+			}
+		},
+		methods:{
+			add(){
+				this.a++
+				console.log(this.a)
+			},
+			change(){
+				console.log('change')
+			}
+		}
+		
+	})
+</script>

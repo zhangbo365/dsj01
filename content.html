@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    content
+    <a href="javascript:go()">后退</a>
+  </body>
+</html>
+<script>
+  function go() {
+    self.moveBy(520, 500)
+  }
+
+  self.onmouseover = function () {
+    self.moveTo(Math.random() * 1000, Math.random() * 1000)
+  }
+</script>
